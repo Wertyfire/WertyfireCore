@@ -36,9 +36,6 @@ public class WertyfireCoreMod implements IMod {
     public void preInit(FMLPreInitializationEvent event) {
         modLogger = event.getModLog();
         getModLogger().info("Wertyfire Core: logger loaded");
-        ModContext.setModContext(INSTANCE);
-        GameRegistry.registerBlock(new DefaultBlock(Material.iron, "sas", "stone", CreativeTabs.tabMaterials, "pickaxe", 1, 1f, 1f), "test_block");
-        ModContext.freeContext();
     }
 
     public static String getModId() {
