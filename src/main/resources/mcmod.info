@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "wertyfirecore",
+    "name": "Wertyfire Core",
+    "description": "Core for mods by Wertyfire",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["Wertyfire"],
+    "credits": "",
+    "logoFile": "assets/wertyfirecore/logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
