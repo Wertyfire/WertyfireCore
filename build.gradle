@@ -73,3 +73,6 @@ artifacts {
     archives devJar
     archives sourcesJar
 }
+jar {
+    classifier = 'runtime'
+}
