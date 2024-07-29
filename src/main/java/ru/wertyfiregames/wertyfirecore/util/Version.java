@@ -14,5 +14,5 @@ public class Version {
      * Version of API and mod.
      * @since 1.0.0
      * */
-    public static final String CORE_VERSION = "1.0.0";
+    public static final String CORE_VERSION = "1.0.1";
 }

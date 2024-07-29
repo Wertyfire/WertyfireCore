@@ -21,9 +21,9 @@ apply plugin: 'forge'
 targetCompatibility = sourceCompatibility =
 compileJava.targetCompatibility = compileJava.sourceCompatibility = JavaVersion.VERSION_1_8
 
-version = "1.0.0"
-group = "ru.wertyfiregames.wertyfirecore"
-archivesBaseName = "WertyfireCore"
+version = "1.7.10-1.0.1"
+group = "ru.wertyfiregames"
+archivesBaseName = "wertyfire-core"
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
@@ -50,6 +50,42 @@ processResources {
     }
 }
 
+apply plugin: 'maven-publish'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            artifactId = archivesBaseName
+
+            artifact sourcesJar {
+                classifier 'sources'
+            }
+
+            artifact devJar {
+                classifier 'dev'
+            }
+
+            pom.withXml {
+                asNode().dependencies[0].children().clear()
+
+                asNode().appendNode('name', 'WertyfireCore')
+                asNode().appendNode('description', 'Core mod-library for mods by Wertyfire')
+                asNode().appendNode('url', 'https://github.com/Wertyfire/WertyfireCore/tree/1.7.10')
+
+                def licensesNode = asNode().appendNode('licenses')
+                def mitLicense = licensesNode.appendNode('license')
+                mitLicense.appendNode('name', 'MIT License')
+                mitLicense.appendNode('url', 'https://raw.githubusercontent.com/Wertyfire/WertyfireCore/1.7.10/LICENSE')
+
+                def developersNode = asNode().appendNode('developers')
+                def wertyfireDeveloper = developersNode.appendNode('developer')
+                wertyfireDeveloper.appendNode('id', 'Wertyfire')
+            }
+        }
+    }
+}
+
 task devJar(type: Jar) {
     classifier = 'dev'
     from sourceSets.main.output
@@ -61,7 +97,4 @@ task sourcesJar(type: Jar) {
 artifacts {
     archives devJar
     archives sourcesJar
-}
-jar {
-    classifier = 'runtime'
 }
