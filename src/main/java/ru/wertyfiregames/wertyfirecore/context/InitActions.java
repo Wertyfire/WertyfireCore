@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class provides preInit, init and postInit methods for your mod. IF you used some features
+ * Class provides preInit, init and postInit methods for your mod. If you used some features
  * that require registering with modid Wertyfire Core put registering to map.
  * @since 1.0.0
  * @author Wertyfire
@@ -208,13 +208,25 @@ public class InitActions {
             }
         }
         /**
-         * Execute method if required FMLStateEvent.
-         * @param event FML(Pre||Post)InitializationEvent from your (pre||post)Init.
+         * Execute method with additional param.
+         * @param additionalParam additional param for method.
          * @since 1.0.0
          * */
-        public void execute(FMLStateEvent event) {
+        public void execute(Object additionalParam) {
             try {
-                method.invoke(target, event, params);
+                method.invoke(target, additionalParam, params);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                WertyfireCoreMod.getModLogger().error("Could not execute method {}. Error: {}", method.toString(), e.getMessage());
+            }
+        }
+        /**
+         * Execute method with additional params.
+         * @param additionalParams object array with additional params.
+         * @since 1.0.0
+         * */
+        public void execute(Object[] additionalParams) {
+            try {
+                method.invoke(target, additionalParams, params);
             } catch (IllegalAccessException | InvocationTargetException e) {
                 WertyfireCoreMod.getModLogger().error("Could not execute method {}. Error: {}", method.toString(), e.getMessage());
             }
