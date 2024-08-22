@@ -5,7 +5,7 @@
     "description": "Core for mods by Wertyfire",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "",
+    "url": "https://modrinth.com/mod/wertyfire_core",
     "updateUrl": "",
     "authorList": ["Wertyfire"],
     "credits": "",
