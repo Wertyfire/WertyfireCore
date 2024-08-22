@@ -10,6 +10,7 @@ import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 import ru.wertyfiregames.wertyfirecore.context.IMod;
+import ru.wertyfiregames.wertyfirecore.util.RGBA;
 import ru.wertyfiregames.wertyfirecore.util.Version;
 
 @Mod(modid = WertyfireCoreMod.MOD_ID, name = WertyfireCoreMod.NAME, version = WertyfireCoreMod.VERSION)
@@ -17,7 +18,7 @@ public class WertyfireCoreMod implements IMod {
     protected static final String MOD_ID = "wertyfirecore";
     protected static final String NAME = "Wertyfire Core";
     protected static final String VERSION = Version.CORE_VERSION;
-    protected static final String buildNum = "01";
+    protected static final String buildNum = "03";
 
     @Instance
     public static WertyfireCoreMod INSTANCE;
@@ -29,7 +30,7 @@ public class WertyfireCoreMod implements IMod {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         modLogger = event.getModLog();
-        getModLogger().info("Wertyfire Core: logger loaded");
+        getModLogger().debug("Wertyfire Core: logger loaded");
     }
 
     public static String getModId() {
