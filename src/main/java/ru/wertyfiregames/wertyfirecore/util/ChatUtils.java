@@ -31,7 +31,7 @@ public class ChatUtils {
      * @param urlKey translation key for text instead of link.
      * @param afterLinkKey translation key for text after link.
      * @since 1.0.0
-     * @apiNote if linkKey starts with "http" used {@linkplain ChatComponentText} else - with I18n.format().
+     * @apiNote if linkKey starts with "http" used {@linkplain ChatComponentText} else - I18n.format().
      * */
     public static void sendMessageWithLink(EntityPlayer player, String beforeLinkKey, String url, String urlKey, String afterLinkKey) {
         ChatComponentText beforeLinkText = new ChatComponentText(I18n.format(beforeLinkKey) + " ");
