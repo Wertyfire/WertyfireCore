@@ -3,15 +3,11 @@ buildscript {
         mavenCentral()
         maven {
             name = "forge"
-            url = "https://maven.minecraftforge.net/"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = "https://github.com/juanmuscaria/maven/raw/master"
         }
     }
     dependencies {
-        classpath('com.anatawa12.forge:ForgeGradle:1.2-1.1.+')
+        classpath('net.minecraftforge.gradle:ForgeGradle:1.2-1.4.6-SNAPSHOT')
     }
 }
 
@@ -22,12 +18,19 @@ targetCompatibility = sourceCompatibility =
 compileJava.targetCompatibility = compileJava.sourceCompatibility = JavaVersion.VERSION_1_8
 
 version = "1.7.10-1.0.2"
-group = "ru.wertyfiregames"
+group = "ru.wertyfiregames.wertyfirecore"
 archivesBaseName = "wertyfire-core"
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
     runDir = "run"
+}
+
+repositories {
+    maven {
+        name = "wertyfireMaven"
+        url = "https://raw.githubusercontent.com/Wertyfire/Versions/main/maven/"
+    }
 }
 
 dependencies {
